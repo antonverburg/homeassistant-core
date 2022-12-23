@@ -404,6 +404,7 @@ FLOWS = {
         "slack",
         "sleepiq",
         "slimproto",
+        "slow_pwm",
         "sma",
         "smappee",
         "smart_meter_texas",
