@@ -685,6 +685,9 @@ dremel3dpy==2.1.1
 # homeassistant.components.dsmr
 dsmr-parser==0.33
 
+# homeassistant.components.pid_controller
+dvg-pid-controller==2.1.0
+
 # homeassistant.components.dwd_weather_warnings
 dwdwfsapi==1.0.6
 
