@@ -4172,6 +4172,11 @@
       "config_flow": true,
       "iot_class": "calculated"
     },
+    "pid_thermostat": {
+      "integration_type": "hub",
+      "config_flow": true,
+      "iot_class": "calculated"
+    },
     "pilight": {
       "name": "Pilight",
       "integration_type": "hub",
@@ -6682,6 +6687,7 @@
     "moon",
     "nmap_tracker",
     "pid_controller",
+    "pid_thermostat",
     "plant",
     "proximity",
     "rpi_power",
