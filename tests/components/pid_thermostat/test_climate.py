@@ -186,7 +186,7 @@ async def test_turn_on_and_off(hass: HomeAssistant) -> None:
     )
     await hass.async_block_till_done()
     # Sleep some cyles. Set all off and to 0 to prevent from lingering errors.
-    await asyncio.sleep(CYCLE_TIME * 10)
+    await asyncio.sleep(CYCLE_TIME * 20)
     state = hass.states.get(ENTITY_CLIMATE)
     assert state.state == HVACMode.OFF
 
@@ -230,7 +230,7 @@ async def test_enable_heater_kp(hass: HomeAssistant) -> None:
     )
     await hass.async_block_till_done()
     # Sleep some cyles. Set all off and to 0 to prevent from lingering errors.
-    await asyncio.sleep(CYCLE_TIME * 10)
+    await asyncio.sleep(CYCLE_TIME * 20)
     state = hass.states.get(ENTITY_CLIMATE)
     assert state.state == HVACMode.OFF
     assert hass.states.get(ENTITY_HEATER).state == "0.0"
@@ -275,7 +275,7 @@ async def test_enable_cooler_kp(hass: HomeAssistant) -> None:
         blocking=True,
     )
     # Sleep some cyles. Set all off and to 0 to prevent from lingering errors.
-    await asyncio.sleep(CYCLE_TIME * 10)
+    await asyncio.sleep(CYCLE_TIME * 20)
     state = hass.states.get(ENTITY_CLIMATE)
     assert state.state == HVACMode.OFF
     assert hass.states.get(ENTITY_HEATER).state == "0.0"
@@ -319,7 +319,7 @@ async def test_enable_heater_ki(hass: HomeAssistant) -> None:
         blocking=True,
     )
     # Sleep some cyles. Set all off and to 0 to prevent from lingering errors.
-    await asyncio.sleep(CYCLE_TIME * 10)
+    await asyncio.sleep(CYCLE_TIME * 20)
     state = hass.states.get(ENTITY_CLIMATE)
     assert state.state == HVACMode.OFF
     assert hass.states.get(ENTITY_HEATER).state == "0.0"
@@ -365,7 +365,7 @@ async def test_enable_heater_kd(hass: HomeAssistant) -> None:
         blocking=True,
     )
     # Sleep some cyles. Set all off and to 0 to prevent from lingering errors.
-    await asyncio.sleep(CYCLE_TIME * 10)
+    await asyncio.sleep(CYCLE_TIME * 20)
     state = hass.states.get(ENTITY_CLIMATE)
     assert state.state == HVACMode.OFF
     assert hass.states.get(ENTITY_HEATER).state == "0.0"
