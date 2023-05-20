@@ -1,9 +1,28 @@
 """The Slow PWM integration."""
+from __future__ import annotations
+
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import Platform
 from homeassistant.core import HomeAssistant
+from homeassistant.helpers import discovery
+from homeassistant.helpers.typing import ConfigType
+
+from .const import DOMAIN
 
 PLATFORMS = [Platform.NUMBER]
+
+
+def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
+    """Slow-PWM specific code."""
+    for slow_pwm_config in config[DOMAIN]:
+        discovery.load_platform(
+            hass,
+            Platform.NUMBER,
+            DOMAIN,
+            discovered=slow_pwm_config,
+            hass_config=config,
+        )
+    return True
 
 
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:

@@ -94,17 +94,21 @@ async def async_setup_platform(
     hass: HomeAssistant,
     config: ConfigType,
     async_add_entities: AddEntitiesCallback,
-    _discovery_info: DiscoveryInfoType | None = None,
+    discovery_info: DiscoveryInfoType | None = None,
 ) -> None:
     """Set up the sensor platform."""
+    if discovery_info is None:
+        return
     await async_setup_reload_service(hass, DOMAIN, PLATFORMS)
-    async_add_entities([SlowPWMEntity(hass, config, config.get(CONF_UNIQUE_ID))])
+    async_add_entities(
+        [SlowPWMEntity(hass, discovery_info, discovery_info.get(CONF_UNIQUE_ID))]
+    )
 
 
 class SlowPWMEntity(RestoreNumber):
     """Representation of a Slow PWM number."""
 
-    def __init__(self, hass, config, unique_id: str | None):
+    def __init__(self, hass: HomeAssistant, config, unique_id: str | None) -> None:
         """Initialize the Slow PWM number."""
         self._config = config
         self._hass = hass
