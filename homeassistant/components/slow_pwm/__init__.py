@@ -12,7 +12,7 @@ from .const import DOMAIN
 PLATFORMS = [Platform.NUMBER]
 
 
-def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
+async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
     """Slow-PWM specific code."""
     for slow_pwm_config in config[DOMAIN]:
         discovery.load_platform(
